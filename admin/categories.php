@@ -34,7 +34,7 @@
                                 <input type="text" class="form-control"name="cat_title">
                             </div>
                             <div class="form-group">
-                            <input class="btn btn-primary"type="submit" name="add" value="Add">
+                            <input class="btn btn-primary" type="submit" name="add" value="Add">
                             </div>
                         </form>
                         <?php sendUpdatedInfo();  ?>
