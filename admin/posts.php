@@ -14,7 +14,7 @@
                         <h1 class="page-header">
                             Welcome to Admin
                         </h1>
-                        <table class="table">
+                        <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
                                     <th>Id</th>
@@ -51,7 +51,7 @@
                                     <td><?php echo $post_title?></td>
                                     <td><?php echo $post_category_id?></td>
                                     <td><?php echo $post_status?></td>
-                                    <td><?php echo $post_image?></td>
+                                    <td><img class = "img-responsive" src=<?php echo '../images/' .$post_image . ''?> height ='200' width ='200'></td>
                                     <td><?php echo $post_tags?></td>
                                     <td><?php echo $post_comment_count?></td>
                                     <td><?php echo $post_date?></td>
