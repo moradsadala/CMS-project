@@ -17,7 +17,18 @@
                         </h1>
 
 <?php
-    include 'includes/add_post.php'
+    if(isset($_GET['source'])){
+        $source = $_GET['source'];
+    }else{
+        $source = '';
+    }
+    switch($source){
+        case 'add_post':
+            include 'includes/add_post.php';
+            break;
+
+    }
+    
 ?>
                         <!-- <ol class="breadcrumb">
                             <li>
