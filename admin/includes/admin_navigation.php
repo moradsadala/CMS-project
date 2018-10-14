@@ -127,7 +127,7 @@
                                 <a href="posts.php">View all posts</a>
                             </li>
                             <li>
-                                <a href="#">Add post</a>
+                                <a href="index.php?add_post">Add post</a>
                             </li>
                         </ul>
                     </li>

@@ -4,15 +4,6 @@
     include 'includes/admin_navigation.php';
     insertCategories();
     deleteCategories();
-                    
-    
-    
-    
-    
-    
-
-    
-        
 ?>
 
         <div id="page-wrapper">
