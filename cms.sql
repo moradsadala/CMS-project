@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 08, 2018 at 11:50 AM
+-- Generation Time: Oct 15, 2018 at 02:38 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -67,8 +67,8 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`post_id`, `post_category_id`, `post_title`, `post_author`, `post_date`, `post_image`, `post_content`, `post_tags`, `post_comment_count`, `post_status`) VALUES
-(1, 3, 'PHP Laravel Framwork', 'Mero Sayed', '2018-09-25', 'php_image.png', 'Laravel is one of the most useful framworks in php language', 'PHP,languages,framwork', 0, 'draft'),
-(3, 4, 'Javascript Course', 'Mo Salah', '2018-09-20', 'js_image.png\r\n', 'Javascript is a client-side language to make your site more attractive.... ', 'java,javascript,client-side', 0, 'draft');
+(3, 4, 'Javascript Course', 'Mo Salah', '2018-09-20', 'js_image.png\r\n', 'Javascript is a client-side language to make your site more attractive.... ', 'java,javascript,client-side', 0, 'draft'),
+(6, 3, 'Laravel', 'morad', '2014-10-18', 'laravel.jpg', 'Laravel is the most popular php framework using now a day.', 'laravel,MVC', 4, 'draft');
 
 --
 -- Indexes for dumped tables
@@ -100,7 +100,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `post_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `post_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

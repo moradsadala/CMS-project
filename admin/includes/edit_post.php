@@ -1,27 +1,4 @@
-<?php
-  if(isset($_POST['post_submit'])){
-    $post_title = $_POST['post_title'];
-    $post_category_id = $_POST['post_category_id'];
-    $post_author = $_POST['post_author'];
-    $post_status = $_POST['post_status'];  
-    $post_image_name = $_FILES['image']['name'];
-    $post_image_temp = $_FILES['image']['tmp_name'];
-    $post_tags = $_POST['post_tags'];
-    $post_content = $_POST['post_content'];
-    $post_date = date('d-m-y');
-    $post_comment_count = 4;
-    move_uploaded_file($post_image_temp,"../images/$post_image_name");
-    $query = "INSERT INTO posts(post_category_id,post_title,post_author,post_date,post_image,post_content,post_tags,post_comment_count,post_status)
-              VALUES('$post_category_id','$post_title','$post_author','$post_date','$post_image_name','$post_content','$post_tags','$post_comment_count','$post_status')";
-    $create_post_query = mysqli_query($db_connection,$query); //To check the query correctness
-    if(!$create_post_query){
-        die("Query FAiled" . mysqli_error($db_connection));
-        
-    }
-    
-  }
-?>
-    <form action="" method="post" enctype="multipart/form-data">
+<form action="" method="post" enctype="multipart/form-data">
     <div class="form-group">
       <label for="post_title">Post Title</label>
       <input type="text" class="form-control" id="post_title" name="post_title">
@@ -53,5 +30,4 @@
     
     <button type="submit" class="btn btn-default btn-primary" name="post_submit">Submit</button>
   </form>
-
 

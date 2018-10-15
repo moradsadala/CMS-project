@@ -16,20 +16,7 @@
                             <small>Author</small>
                         </h1>
 
-<?php
-    if(isset($_GET['source'])){
-        $source = $_GET['source'];
-    }else{
-        $source = '';
-    }
-    switch($source){
-        case 'add_post':
-            include 'includes/add_post.php';
-            break;
 
-    }
-    
-?>
                         <!-- <ol class="breadcrumb">
                             <li>
                                 <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>

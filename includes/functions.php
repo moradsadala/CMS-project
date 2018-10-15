@@ -54,6 +54,21 @@ function deleteCategories(){             //Delete category
 
 }
 
+function deletePost(){             //Delete post
+    global $db_connection;
+
+    if(isset($_GET['delete'])){
+        $post_id = $_GET['delete'] ;
+        $query = "DELETE FROM posts WHERE post_id = $post_id";
+        $delete_query =mysqli_query($db_connection,$query);
+        if(!$delete_query){
+            die('QUERY FAILED' . mysqli_error($db_connection));
+        }
+        header("Location: posts.php"); //To redirect your page into this site
+    }
+
+}
+
 function sendUpdatedInfo(){                 //Send the selected recored to the database to update it
     global $db_connection;
 
