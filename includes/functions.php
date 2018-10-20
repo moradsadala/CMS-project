@@ -54,6 +54,8 @@ function deleteCategories(){             //Delete category
 
 }
 
+
+
 function deletePost(){             //Delete post
     global $db_connection;
 
@@ -64,7 +66,7 @@ function deletePost(){             //Delete post
         if(!$delete_query){
             die('QUERY FAILED' . mysqli_error($db_connection));
         }
-        header("Location: posts.php"); //To redirect your page into this site
+        header("Location: posts.php");    //To redirect your page into this site
     }
 
 }
@@ -108,6 +110,7 @@ function updateCategories($cat_id,$cat_title){
         die("QUERY FAILED " . mysqli_error($db_connection));
     }
 }
+
 
 
 
