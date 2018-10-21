@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 15, 2018 at 02:38 PM
+-- Generation Time: Oct 21, 2018 at 02:19 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -67,8 +67,9 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`post_id`, `post_category_id`, `post_title`, `post_author`, `post_date`, `post_image`, `post_content`, `post_tags`, `post_comment_count`, `post_status`) VALUES
-(3, 4, 'Javascript Course', 'Mo Salah', '2018-09-20', 'js_image.png\r\n', 'Javascript is a client-side language to make your site more attractive.... ', 'java,javascript,client-side', 0, 'draft'),
-(6, 3, 'Laravel', 'morad', '2014-10-18', 'laravel.jpg', 'Laravel is the most popular php framework using now a day.', 'laravel,MVC', 4, 'draft');
+(13, 12, 'javascript', 'Morad Sadala', '2018-10-20', 'js_image.png', 'client side scripting language', 'js', 4, 'draft'),
+(14, 18, 'Laravel', 'Dodo Saead', '2018-10-21', 'laravel.jpg', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores fugiat, tempore architecto harum itaque corporis officia, voluptatum consectetur delectus officiis, dicta cumque ullam iste inventore suscipit ab doloribus minus sit.', 'laravel,MVC', 4, 'published'),
+(15, 18, 'php', 'Momo', '2018-10-21', 'php_image.png', 'one of the most powerful server side scripting language', 'php', 4, 'published');
 
 --
 -- Indexes for dumped tables
@@ -100,7 +101,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `post_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `post_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

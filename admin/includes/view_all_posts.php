@@ -39,7 +39,19 @@
             <td><?php echo $post_id?></td>
             <td><?php echo $post_author?></td>
             <td><?php echo $post_title?></td>
-            <td><?php echo $post_category_id?></td>
+<?php 
+    $query = "SELECT * FROM categories WHERE cat_id='$post_category_id'";
+    $select_all_categories = mysqli_query($db_connection,$query);
+    if($select_all_categories){
+        while($row = mysqli_fetch_assoc($select_all_categories)){
+            $cat_title = $row['cat_title'];
+        }
+    }else{
+        echo "QUERY FAILED !!!!";
+    }
+    
+?>
+            <td><?php echo $cat_title ?></td>
             <td><?php echo $post_status?></td>
             <td><img class = "img-responsive" src=<?php echo '../images/' .$post_image . ''?> height ='200' width ='200'></td>
             <td><?php echo $post_tags?></td>
