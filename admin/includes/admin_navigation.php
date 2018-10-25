@@ -133,9 +133,17 @@
                     </li>
                     <li>
                         <a href="./categories.php"><i class="fa fa-fw fa-wrench"></i>Categories</a>
-                    </li>
-                    <li class="active">
-                        <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Comments</a>
+                    </li>  
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#comment_list"><i class="fa fa-fw fa-arrows-v"></i> Comments <i class="fa fa-fw fa-caret-down"></i></a>
+                            <ul id="comment_list" class="collapse">
+                                <li>
+                                    <a href="comments.php?source=veiw_all_comments">View all comments </a>
+                                </li>
+                                <li>
+                                    <a href="comments.php?source=add_comment">Add comment</a>
+                                </li>
+                            </ul>
                     </li>
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#users_list"><i class="fa fa-fw fa-arrows-v"></i> Users <i class="fa fa-fw fa-caret-down"></i></a>
