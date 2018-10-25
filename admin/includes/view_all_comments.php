@@ -37,22 +37,22 @@
             <td><?php echo $comment_content?></td>
             <td><?php echo $comment_email?></td>
 <?php 
-    // $query = "SELECT * FROM categories WHERE cat_id='$post_category_id'";
-    // $select_all_categories = mysqli_query($db_connection,$query);
-    // if($select_all_categories){
-    //     while($row = mysqli_fetch_assoc($select_all_categories)){
-    //         $cat_title = $row['cat_title'];
-    //     }
-    // }else{
-    //     echo "QUERY FAILED !!!!";
-    // }
+    $query = "SELECT * FROM posts WHERE post_id='$comment_post_id'";
+    $selected_post = mysqli_query($db_connection,$query);
+    if($selected_post){
+        while($row = mysqli_fetch_assoc($selected_post)){
+            $comment_in_respones_to = $row['post_title'];
+        }
+    }else{
+        echo "QUERY FAILED !!!!";
+    }
     
 ?>
             <td><?php echo $comment_status?></td>
-            <td><?php echo "inrespone to"?></td>
+            <td><a href="../post.php?post_id=<?php echo $comment_post_id ?>"><?php echo $comment_in_respones_to?></a></td>
             <td><?php echo $comment_date?></td>
-            <td><a href="?approve=yes&approve_id=<?php $comment_id ?>">Approve</a></td>
-            <td><a href="?approve=no&approve_id=<?php $comment_id ?>">Unapprove</a></td>
+            <td><a href="?approve=<?php echo $comment_id ?>">Approve</a></td>
+            <td><a href="?unapprove=<?php echo $comment_id ?>">Unapprove</a></td>
             <td><a href="?delete=<?php echo $comment_id ?>">Delete</a></td>
             
         </tr>

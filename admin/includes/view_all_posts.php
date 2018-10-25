@@ -33,7 +33,13 @@
            $post_status = $row['post_status'];
            $post_image = $row['post_image'];
            $post_tags = $row['post_tags'];
-           $post_comment_count = $row['post_comment_count'];
+           {
+            $query = "SELECT * FROM comments WHERE comment_post_id='$post_id'";
+            $result = mysqli_query($db_connection, $query);
+            $num_of_rows = mysqli_num_rows($result);
+           }
+           
+           $post_comment_count = $num_of_rows;
            $post_date = $row['post_date'];
 ?>
         <tr>

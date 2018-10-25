@@ -54,7 +54,7 @@
                 $comment_author = $_POST['comment_author'];
                 $comment_email = $_POST['comment_email'];
                 $comment_content = $_POST['comment_content'];
-                $comment_status = "active";
+                $comment_status = "approved";
                 $comment_date = date('y-m-d');
 
                 $query = "INSERT INTO comments (comment_author, comment_post_id, comment_email, comment_content, comment_status, comment_date )
@@ -89,22 +89,51 @@
                 <hr>
 
                 <!-- Posted Comments -->
-
-                <!-- Comment -->
+<?php 
+    $comment_post_id = $_GET['post_id'];
+    $query = "SELECT * FROM comments WHERE comment_post_id='$comment_post_id'";
+    $query .= "AND comment_status='approved'";
+    $query .= "ORDER BY comment_id DESC";
+    $all_comments_for_post = mysqli_query($db_connection,$query);
+    if($all_comments_for_post){
+        while($row = mysqli_fetch_assoc($all_comments_for_post)){
+                    $comment_author = $row['comment_author'];
+                    //$comment_email = $_POST['comment_email'];
+                    $comment_content = $row['comment_content'];
+                    //$comment_status = $comment['comment_status'];
+                    $comment_date = $row['comment_date'];
+?>
                 <div class="media">
-                    <a class="pull-left" href="#">
-                        <img class="media-object" src="http://placehold.it/64x64" alt="">
-                    </a>
-                    <div class="media-body">
-                        <h4 class="media-heading">Start Bootstrap
-                            <small>August 25, 2014 at 9:30 PM</small>
-                        </h4>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                            <a class="pull-left" href="#">
+                                <img class="media-object" src="http://placehold.it/64x64" alt="">
+                            </a>
+                            <div class="media-body">
+                                <h4 class="media-heading"><?php echo $comment_author ?>
+                                    <small><?php echo $comment_date ?></small>
+                                </h4>
+                                <?php echo $comment_content ?>
+                            </div>
                     </div>
-                </div>
+<?php
+
+                }
+            
+    }else{
+        die('QUERY FAILED ') . mysqli_error($db_connection);
+    }
+?>
+    
+                
+                
+                
+
+
+
+
+                
 
                 <!-- Comment -->
-                <div class="media">
+                <!-- <div class="media">
                     <a class="pull-left" href="#">
                         <img class="media-object" src="http://placehold.it/64x64" alt="">
                     </a>
@@ -112,9 +141,11 @@
                         <h4 class="media-heading">Start Bootstrap
                             <small>August 25, 2014 at 9:30 PM</small>
                         </h4>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. -->
+
                         <!-- Nested Comment -->
-                        <div class="media">
+                        
+                        <!-- <div class="media">
                             <a class="pull-left" href="#">
                                 <img class="media-object" src="http://placehold.it/64x64" alt="">
                             </a>
@@ -124,10 +155,12 @@
                                 </h4>
                                 Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
                             </div>
-                        </div>
+                        </div> -->
+
                         <!-- End Nested Comment -->
-                    </div>
-                </div>
+
+                    <!-- </div>
+                </div> -->
             </div>
 
             <!-- Blog Sidebar Widgets Column -->

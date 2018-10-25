@@ -71,6 +71,43 @@ function deletePost(){             //Delete post
 
 }
 
+function deleteComment(){
+    global $db_connection;
+
+    if(isset($_GET['delete'])){
+        $comment_id = $_GET['delete'] ;
+        $query = "DELETE FROM comments WHERE comment_id = $comment_id";
+        $delete_query =mysqli_query($db_connection,$query);
+        if(!$delete_query){
+            die('QUERY FAILED' . mysqli_error($db_connection));
+        }
+        header("Location: comments.php");    //To redirect your page into this site
+    }
+}
+
+function getCommentStatus(){
+    global $db_connection;
+
+    if(isset($_GET['approve'])){
+        $comment_id = $_GET['approve'];
+        $query = "UPDATE comments SET comment_status='approved' WHERE comment_id='$comment_id'";
+        $approved_comment = mysqli_query($db_connection,$query);
+        if(!$approved_comment){
+            die('QUERY FAILED' . mysqli_error($db_connection));
+        }
+        header("Location: comments.php");    //To redirect your page into this site
+    }
+    if(isset($_GET['unapprove'])){
+        $comment_id = $_GET['unapprove'];
+        $query = "UPDATE comments SET comment_status='unapproved' WHERE comment_id='$comment_id'";
+        $unapproved_comment = mysqli_query($db_connection,$query);
+        if(!$unapproved_comment){
+            die('QUERY FAILED' . mysqli_error($db_connection));
+        }
+        header("Location: comments.php");    //To redirect your page into this site
+    }
+}
+
 function sendUpdatedInfo(){                 //Send the selected recored to the database to update it
     global $db_connection;
 

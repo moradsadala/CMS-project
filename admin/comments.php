@@ -2,7 +2,8 @@
     ob_start();    //to use header 
     include 'includes/admin_header.php' ;
     include 'includes/admin_navigation.php';
-    deletePost();
+    deleteComment();
+    getCommentStatus();
 ?>
     <div id="page-wrapper">
         <div class="container-fluid">
